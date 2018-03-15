@@ -5,12 +5,21 @@ import Divider from 'material-ui/Divider';
 import {Link} from 'react-router';
 import {NavToggleButton} from './../styled/NavDrawer';
 import ajax from '../api/ajax';
+import WebFont from 'webfontloader'
+
+WebFont.load({
+    google: {
+        families: ['Ubuntu:300,400,700,bold','Comfortaa:300,400,700','sans-serif']
+    }
+});
 function Category(props){
     return(
-              <Link to={props.category.url}>
+              <Link to={props.category.url}
+                    style={styles.links}>
                      <MenuItem
                       onTouchTap={props.toggle}
                       primaryText={props.category.name}
+                      style={styles.menulist}
                       />
               </Link>);
 }
@@ -65,11 +74,13 @@ class NavDrawer extends Component{
                     openSecondary={true}>
 
                     {this.categoryLoading()}
-                       
-                        <Link to={'/credit'}>
+                       <Divider />
+                        <Link to={'/credit'}
+                        style={styles.links}>
                         <MenuItem
                             onTouchTap={this.toggle}
                             primaryText={'Credit'}
+                            style={styles.menulist}
                         />
                          </Link> 
 
@@ -79,4 +90,14 @@ class NavDrawer extends Component{
     }
 }
 
+const styles = {
+    menulist: {
+        color:"#5e35b1", 
+        fontFamily:'Ubuntu',
+    },
+    links:{
+        textDecoration: 'none'
+    }
+    
+}
 export default NavDrawer;

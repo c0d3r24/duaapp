@@ -5,6 +5,12 @@ import FaFacebookSquare from 'react-icons/lib/fa/facebook-square';
 import FaGooglePlus from 'react-icons/lib/fa/google-plus';
 import FaTwitterSquarefrom from 'react-icons/lib/fa/twitter-square';
 
+import WebFont from 'webfontloader'
+WebFont.load({
+    google: {
+        families: ['Ubuntu:300,400,700,bold','Comfortaa:300,400,700','sans-serif']
+    }
+});
 export const Header = styled.header`
     text-align : center,
     font-size: 2em;
@@ -19,7 +25,7 @@ export const Container = styled.div`
    min-height: 80vh;
    margin-top: 50px;
    font-size: 20px;
-   font-family: 'Roboto', sans-serif;
+   font-family: 'Ubuntu', sans-serif;
    //border: 2px solid #5e35b1 ;
    border-radius: 5px;
   ${
@@ -35,13 +41,12 @@ function Dua(props){
                 color: "#292929",
                 borderWidth: 2,
                 borderBottom:"2px solid #5e35b1",
-                // borderBottomWidth: 2,
-                // borderBottomColor:,
-                marginTop: 2
+                marginTop: 2,
+                lineHeight: 1.5,
                   }}>
             <p style={{
                 textAlign: "right", 
-                fontSize: "22px",
+                fontSize: "24px",
                 }}>
         {props.duaDetail.duaArabic.trim()}</p>
             <p>{props.duaDetail.duaEnglish}</p>

@@ -1,11 +1,19 @@
 import React from 'react';
 import styled from 'styled-components';
 import {media} from '../utils/media';
+import WebFont from 'webfontloader'
+
+WebFont.load({
+    google: {
+        families: ['Ubuntu:300,400,700,bold','Actor:300,400,700','sans-serif']
+    }
+});
 
 export const Header = styled.header`
     text-align : center,
     font-size: 2em;
-    font-family: 'Roboto', sans-serif;
+    //font-family: 'Roboto', sans-serif;
+    font-family: 'Actor', sans-serif;
     color:#5e35b1;
 `
 export const Container = styled.div`

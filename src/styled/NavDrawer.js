@@ -9,6 +9,7 @@ const StayVisible = styled.div`
     right:2px;
     margin-right: ${(props) => (props.open) ? `${props.width}px`:'none'};
     transition: margin .5s,
+    
 `
 export const NavToggleButton = (props) =>{
     return (
