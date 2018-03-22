@@ -1,14 +1,9 @@
 import React, { Component } from 'react';
-
+import {Main} from './../styled/Credit';
 class Credit extends Component{
     render(){
         return(
-            <div> 
-               
-                    <h1>DailyLife</h1>
-                
-            
-            </div>
+                <Main />
         );
     }
 }

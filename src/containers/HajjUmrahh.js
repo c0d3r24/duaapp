@@ -1,15 +1,26 @@
 import React, { Component } from 'react';
+import {renderInitialView} from './../utils/helper';
+import ajax from './../api/ajax';
+class HajjUmrahh extends Component{state = {
+    loadingDua : true,
+    duaDetail : [],
+}
+async componentWillMount(){
+    const dua = await ajax.fetchAllDuaForCategory(1);
+    this.setState({
+        loadingDua: false,
+        duaDetail: dua,
+    });
+} 
 
-class HajjUmrahh extends Component{
-    render(){
-        return(
-            <div> 
-               
-                    <h1>HajjUmrahh</h1>
-              
-            </div>
-        );
-    }
+
+render(){
+    return(
+        <div> 
+        {renderInitialView(this.loadingDua,this.state.duaDetail)}
+    </div>
+    );
+}
 }
 
 export default HajjUmrahh;

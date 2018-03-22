@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import ajax from '../api/ajax';
-import {Main} from '../styled/DuaDetail';
+import {renderInitialView} from './../utils/helper';
 
 class MorningEvening extends Component{
     state = {
@@ -9,25 +9,17 @@ class MorningEvening extends Component{
     }
     async componentWillMount(){
         const dua =  await ajax.fetchAllDuaForCategory(1)
-        console.log(dua);
         this.setState({
             loadingDua: false,
             duaDetail : dua
-        })
+        });
     }
     
-    renderInitialView(){
-        if(this.loadingDua){
-            return <div><p>Loading.......</p></div>
-        }
-        else{
-            return <Main duaDetail={this.state.duaDetail} />
-        }
-    }
+
     render(){
         return(
             <div> 
-                {this.renderInitialView()}
+                {renderInitialView(this.loadingDua,this.state.duaDetail)}
             </div>
         );
     }

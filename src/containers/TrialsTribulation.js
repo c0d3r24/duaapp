@@ -1,12 +1,26 @@
 import React, { Component } from 'react';
+import ajax from './../api/ajax';
+import {renderInitialView} from './../utils/helper';
 
 class TrialsTribulation extends Component{
+
+    state = {
+        loadingDua : true,
+        duaDetail:[]
+    }
+    async componentWillMount(){
+        const dua =  await ajax.fetchAllDuaForCategory(1)
+        this.setState({
+            loadingDua: false,
+            duaDetail : dua
+        });
+    }
+    
+
     render(){
         return(
             <div> 
-                <header>
-                    <h1>TrialsTribulation</h1>
-                </header>
+                {renderInitialView(this.loadingDua,this.state.duaDetail)}
             </div>
         );
     }

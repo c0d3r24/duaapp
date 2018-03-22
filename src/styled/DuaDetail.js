@@ -33,6 +33,8 @@ export const Container = styled.div`
       width:100%;`
   }
 `
+
+
 function Dua(props){
      console.log(props.duaDetail);
     return(
@@ -52,7 +54,7 @@ function Dua(props){
             <p>{props.duaDetail.duaEnglish}</p>
             <p>{props.duaDetail.duaTranslationEnglish}</p>
             <p style={{fontSize: 12}}>{props.duaDetail.duaReference}</p>
-            <div style={{textAlign: "right"}}>
+            <div style={{textAlign: "right"}} >
                 <FaFacebookSquare 
                     style={{fontSize: 25, color: "#5e35b1"}}
                 />

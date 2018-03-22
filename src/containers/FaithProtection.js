@@ -1,13 +1,26 @@
 import React, { Component } from 'react';
-
+import {renderInitialView} from './../utils/helper';
+import ajax from './../api/ajax';
 class FaithProtection extends Component{
+
+    state = {
+        loadingDua : true,
+        duaDetail : [],
+    }
+    async componentWillMount(){
+        const dua = await ajax.fetchAllDuaForCategory(1);
+        this.setState({
+            loadingDua: false,
+            duaDetail: dua,
+        });
+    } 
+
+
     render(){
         return(
             <div> 
-              
-                    <h1>Dua App</h1>
-                    </div> 
-            
+            {renderInitialView(this.loadingDua,this.state.duaDetail)}
+        </div>
         );
     }
 }
